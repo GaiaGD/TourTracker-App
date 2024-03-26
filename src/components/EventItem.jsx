@@ -12,6 +12,7 @@ export default function EventItem({gig}) {
   }
 
   const event = gig
+  console.log(event)
 
   const dateString = event.dates.start.localDate
   const dateParts = dateString.split('-');
@@ -32,7 +33,7 @@ export default function EventItem({gig}) {
 
   return (
     <div onClick={() => setActiveMarker(event.id)}
-    className="mb-8 p-6 rounded-lg hover:bg-fuchsia-900 border-b-2 border-lime-300 border-solid">
+    className="mb-2 p-3 md:mb-8 md:p-6 rounded-lg hover:bg-fuchsia-900 border-b-2 border-lime-300 border-solid">
       <div className="w-full md:flex md:justify-between sm:block">
         <div className="flex w-full">
           <div className="text-center w-1/4">
@@ -47,10 +48,10 @@ export default function EventItem({gig}) {
           </div>
         </div>
 
-        <div className=" flex">
+        <div className="flex ">
           <button
           onClick={() => eventDetails()}
-          type="button" className="md:self-end focus:outline-none bg-fuchsia-700 hover:bg-fuchsia-800 focus:ring-4 focus:ring-fuchsia-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-fuchsia-600 dark:hover:bg-fuchsia-700 dark:focus:ring-fuchsia-900">Details</button>
+          type="button" className="self-end focus:outline-none bg-fuchsia-700 hover:bg-fuchsia-800 focus:ring-4 focus:ring-fuchsia-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-fuchsia-600 dark:hover:bg-fuchsia-700 dark:focus:ring-fuchsia-900">Details</button>
         </div>
 
       </div>
@@ -71,12 +72,12 @@ export default function EventItem({gig}) {
                 <p>Event Starts: {event.dates?.start?.localTime}</p>
               </div>
               <div className="w-1/2">
-                <p>Doors open: {event.doorsTimes?.localTime}</p>
+                {event.doorsTimes?.localTime && <p>Doors open: {event.doorsTimes?.localTime}</p>}
               </div>
             </div>
             <div className="flex items-center pt-2">
               <div className="w-1/2">
-                { event.priceRanges && <><p>tickets from {event.priceRanges[0].min}{event.priceRanges[0].currency}</p></> }
+                { event.priceRanges && <p>tickets from {event.priceRanges[0].min}{event.priceRanges[0].currency}</p> }
               </div>
               <div className="w-1/2">
                 {/* {event.ticketLimit && <p>{event.ticketLimit.info}</p> } */}
@@ -93,6 +94,9 @@ export default function EventItem({gig}) {
               <div className="w-1/2">
                 {event.ticketLimit && <p>{event.ticketLimit.info}</p> }
               </div>
+            </div>
+            <div className="mt-4">
+              {event.pleaseNote && <small>*{event.pleaseNote}</small>}
             </div>
           </div>
         </motion.div>

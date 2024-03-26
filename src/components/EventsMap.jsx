@@ -37,7 +37,6 @@ function EventsMap({gigs}) {
     });
   }
 
-
   return (
       <div >
         {isLoaded ? (

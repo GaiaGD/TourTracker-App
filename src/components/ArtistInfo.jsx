@@ -13,7 +13,7 @@ export default function ArtistInfo({artistInfo}) {
 
             <div className="p-6 animate-fade">
                 {artistInfo.name &&
-                    <div className="py-6">
+                    <div className="pb-6 md:pt-6 pt-0">
                         <p className="my-4">Results For: </p>
                         <h1 className="text-7xl bebas-neue-regular drop-shadow-lg text-lime-300">{artistInfo.name}</h1>
                     </div>

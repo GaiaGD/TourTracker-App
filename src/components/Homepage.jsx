@@ -1,18 +1,19 @@
-import { useContext, useEffect, useState } from "react";
-import { TourContext } from "../context/tour-context.jsx"
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Results from "./Results.jsx";
 import EventsMap from "./EventsMap.jsx";
 import ArtistInfo from "./ArtistInfo.jsx";
 import SearchBar from "./SearchBar.jsx"
+import TTLogo from "../../public/TT-logo.svg";
 
 export default function HomePage (){
-
-    const ticketmasterApiKey = import.meta.env.VITE_TICKETMASTER_API_KEY
+    const [firstLanding, setfirstLanding] = useState(true);
+    const location = useLocation();
 
     const [eventsData, setEventsData] = useState([]);
     const [artistInfo, setArtistInfo] = useState([]);
 
-    const defaultId = 'K8vZ9174l1f'; // Replace for another artist
+    const defaultId = 'K8vZ917_Su0'; // Replace for another artist
 
     useEffect(() => {
         const ticketmasterApiKey = import.meta.env.VITE_TICKETMASTER_API_KEY
@@ -55,25 +56,55 @@ export default function HomePage (){
         return () => {
             // Clean up 
           };
-
+          
     }, [])
+
+    useEffect(() => {
+        // Check if the location pathname is the homepage
+        const isHomePage = location.pathname === "/";
+        // If not navigating back to the homepage, setfirstLanding to false
+        if (!isHomePage) {
+            setfirstLanding(false)
+        }
+        // Clean up 
+        return () => {
+        };
+    }, [location]);
+
+    useEffect(() => {
+        // Simulate loading data 
+        const timeout = setTimeout(() => {
+            setfirstLanding(false)
+        }, 3000)
+        // Cleanup
+        return () => {
+          clearTimeout(timeout);
+        };
+      }, []);
 
     return (
         <div>
-            <EventsMap  gigs={eventsData._embedded ? eventsData._embedded.events : []} />
-            <div className="w-100 md:flex">
-            <div>
-                <div className="sm:w-full md:w-2/5">
-                    <ArtistInfo artistInfo={artistInfo} />
-                </div>
-                <div className="w-full md:w-3/5 p-6">
-                    <SearchBar />
-                </div>
-            </div>
-              <div className="w-full md:w-3/5 p-6">
-                <Results gigs={eventsData._embedded ? eventsData._embedded.events : [] } />
-              </div>
-            </div>
+            { firstLanding ?
+                (
+                    <div className="h-screen bg-black grid place-content-center">
+                        <img className="w-80 h-auto" src={TTLogo} />
+                    </div>
+                ) : (
+                    <div>
+                        <EventsMap gigs={eventsData._embedded ? eventsData._embedded.events : []} />
+                        <div className="w-100 md:flex">
+                            <div className="sm:w-full md:w-2/5">
+                            <div className="block md:hidden mt-6 mx-2"><SearchBar/></div>
+                                <ArtistInfo artistInfo={artistInfo} />
+                            </div>
+                            <div className="w-full md:w-3/5 p-6">
+                                <div className="hidden md:block"><SearchBar/></div>
+                                <Results gigs={eventsData._embedded ? eventsData._embedded.events : [] } />
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
         </div>
     )
 }

@@ -95,7 +95,7 @@ export default function SearchBar (){
             
 
             {dropdownresults.length > 0 && dropdownresults !== "No Results" &&
-                <div className="absolute backdrop-blur-md bg-lime-300 bg-opacity-60 text-fuchsia-950 rounded-lg w-[56%] max-h-[50vh] m-3 overflow-scroll">
+                <div className="absolute z-10 backdrop-blur-md bg-lime-300 bg-opacity-60 text-fuchsia-950 rounded-lg w-100 md:w-[56%] max-h-[50vh] m-3 overflow-scroll">
                     {dropdownresults.map((result, i) => (
                         <div
                             onClick={() =>
@@ -112,7 +112,7 @@ export default function SearchBar (){
             }
 
             { dropdownresults === "No Results" &&
-                <div className="absolute backdrop-blur-md bg-lime-300 bg-opacity-40 text-fuchsia-950 rounded-lg w-[56%] max-h-[50vh] m-3 overflow-scroll">
+                <div className="absolute z-10 backdrop-blur-md bg-lime-300 bg-opacity-40 text-fuchsia-950 rounded-lg w-100 w-[56%] max-h-[50vh] m-3 overflow-scroll">
                     <div onClick={() => {setDropdownresults([]), setInputValue('')}} className="cursor-pointer p-6 border-b border-fuchsia-950 last:border-0 hover:bg-lime-300/40">
                         <p>No artist found</p>
                     </div>
