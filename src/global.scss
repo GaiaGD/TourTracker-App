@@ -1,0 +1,54 @@
+$bg-lime: rgb(190 242 100);
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .montserrat-regular{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
+  .bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  // pagination
+  .paginationButtons {
+    li {
+      margin: 0 1rem;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border-style: solid;
+      border-width: 4px;
+      border-color: $bg-lime;
+      color: $bg-lime;
+      min-width: 3rem;
+      text-align: center;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+    li.disabled {
+      pointer-events: none;
+      a {
+        pointer-events: none;
+      }
+    }
+    li.active {
+      background-color: $bg-lime;
+      color: rgb(59 7 100);
+    }
+  }
+
+  // map
+  .gm-style .gm-style-iw {
+    font-size: 20px;
+    color: rgb(59 7 100);
+  }
