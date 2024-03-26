@@ -79,7 +79,7 @@ export default function EventItem({gig}) {
                 { event.priceRanges && <><p>tickets from {event.priceRanges[0].min}{event.priceRanges[0].currency}</p></> }
               </div>
               <div className="w-1/2">
-                {event.ticketLimit && <p>{event.ticketLimit.info}</p> }
+                {/* {event.ticketLimit && <p>{event.ticketLimit.info}</p> } */}
               </div>
             </div>
             <div className="flex items-center pt-2">

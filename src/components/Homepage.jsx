@@ -55,18 +55,22 @@ export default function HomePage (){
         return () => {
             // Clean up 
           };
-          
+
     }, [])
 
     return (
         <div>
             <EventsMap  gigs={eventsData._embedded ? eventsData._embedded.events : []} />
             <div className="w-100 md:flex">
-              <div className="sm:w-full md:w-2/5">
-                <ArtistInfo artistInfo={artistInfo} />
-              </div>
+            <div>
+                <div className="sm:w-full md:w-2/5">
+                    <ArtistInfo artistInfo={artistInfo} />
+                </div>
+                <div className="w-full md:w-3/5 p-6">
+                    <SearchBar />
+                </div>
+            </div>
               <div className="w-full md:w-3/5 p-6">
-                <SearchBar />
                 <Results gigs={eventsData._embedded ? eventsData._embedded.events : [] } />
               </div>
             </div>
