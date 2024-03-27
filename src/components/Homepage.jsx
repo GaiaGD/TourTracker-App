@@ -96,7 +96,7 @@ export default function HomePage (){
                         <EventsMap gigs={eventsData._embedded ? eventsData._embedded.events : []} />
                         <div className="w-100 md:flex">
                             <div className="sm:w-full md:w-2/5">
-                            <div className="block md:hidden mt-6 mx-2"><SearchBar/></div>
+                            {/* <div className="block md:hidden mt-6 mx-2"><SearchBar/></div> */}
                                 <ArtistInfo artistInfo={artistInfo} />
                             </div>
                             <div className="w-full md:w-3/5 p-6">
