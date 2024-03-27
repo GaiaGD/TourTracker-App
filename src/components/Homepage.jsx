@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import Header from "./Header.jsx";
 import Results from "./Results.jsx";
 import EventsMap from "./EventsMap.jsx";
 import ArtistInfo from "./ArtistInfo.jsx";
@@ -91,6 +92,7 @@ export default function HomePage (){
                     </div>
                 ) : (
                     <div>
+                        <Header/>
                         <EventsMap gigs={eventsData._embedded ? eventsData._embedded.events : []} />
                         <div className="w-100 md:flex">
                             <div className="sm:w-full md:w-2/5">
@@ -98,7 +100,7 @@ export default function HomePage (){
                                 <ArtistInfo artistInfo={artistInfo} />
                             </div>
                             <div className="w-full md:w-3/5 p-6">
-                                <div className="hidden md:block"><SearchBar/></div>
+                                {/* <div className="hidden md:block"><SearchBar/></div> */}
                                 <Results gigs={eventsData._embedded ? eventsData._embedded.events : [] } />
                             </div>
                         </div>

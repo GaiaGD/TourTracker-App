@@ -13,7 +13,7 @@ export default function Results ({gigs}) {
 
     const test = events[0]?.name
 
-    const eventsPerPage = 10
+    const eventsPerPage = 20
     const pagesVisited = currentPage * eventsPerPage
     
     if(events.length > 0 ){
@@ -35,7 +35,7 @@ export default function Results ({gigs}) {
             {displayEvents.length > 0 ? (
                 <motion.div key={test} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
                     <div className="pb-6">
-                        <h1 className="text-center text-3xl bebas-neue-regular">Upcoming Shows: </h1>
+                        <h1 className="text-center text-3xl Aktiv-Grotesk-Bold">Upcoming Shows: </h1>
                     </div>
                     <div>
                         <div className="">
@@ -56,7 +56,7 @@ export default function Results ({gigs}) {
                 <motion.div key={test} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
                     <div>
                         <div className="pb-6">
-                            <h1 className="text-center text-3xl bebas-neue-regular">No upcoming shows.</h1>
+                            <h1 className="text-center text-3xl Aktiv-Grotesk-Bold">No upcoming shows.</h1>
                         </div>
                     </div>
                 </motion.div>

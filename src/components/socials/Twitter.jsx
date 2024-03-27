@@ -1,6 +1,6 @@
 export default function Twitter (){
     return (
-        <span className="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-black">
+        <span className="[&>svg]:h-5 [&>svg]:w-5 [&>svg]:fill-white">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"

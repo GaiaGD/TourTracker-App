@@ -45,7 +45,7 @@ function EventsMap({gigs}) {
               center={{ lat: 38, lng: -99 }}
               zoom={4}
               onClick={() => setActiveMarker(null)}
-              mapContainerStyle={{ width: "100%", height: "33vh" }}
+              mapContainerStyle={{ width: "100%", height: "40vh" }}
             >
               { markers.length > 0 && markers.map(({ id, website, name, position, address, city, state }) => (
                 <MarkerF

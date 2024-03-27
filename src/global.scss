@@ -1,7 +1,6 @@
 $bg-lime: rgb(190 242 100);
 
 body {
-    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-style: normal;
   }
@@ -19,6 +18,78 @@ body {
     font-weight: 400;
     font-style: normal;
   }
+
+.TT-Nooks-Script-Bold {
+  font-family: "tt-nooks-script", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.TT-Nooks-Script-Black {
+  font-family: "tt-nooks-script", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.Waldo-Black {
+  font-family: "waldo-black", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.Waldo-Outline {
+  font-family: "waldo-outline", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.Waldo-Shadow {
+  font-family: "waldo-shadow", sans-serif;
+  font-weight: 400;
+  font-style: normal;}
+
+.Waldo-Stencil{
+  font-family: "waldo-stencil", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.Taboo-Pro-Medium {
+  font-family: "taboo-pro", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.Taboo-Pro-Medium-Italic {
+  font-family: "taboo-pro", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.Aktiv-Grotesk-Light {
+  font-family: "aktiv-grotesk", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.Aktiv-Grotesk-Regular {
+  font-family: "aktiv-grotesk", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.Aktiv-Grotesk-SemiBold {
+  font-family: "aktiv-grotesk", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.Aktiv-Grotesk-Bold {
+  font-family: "aktiv-grotesk", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.Aktiv-Grotesk-Thin {
+  font-family: "aktiv-grotesk-thin", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
 
   // pagination
   .paginationButtons {

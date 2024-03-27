@@ -1,5 +1,6 @@
 import { useState,useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Header from "./Header.jsx";
 import Results from "./Results.jsx";
 import EventsMap from "./EventsMap.jsx";
 import ArtistInfo from "./ArtistInfo.jsx";
@@ -62,14 +63,15 @@ export default function ResultsPage (){
 
     return (
         <div>
+            <Header/>
             <EventsMap  gigs={eventsData._embedded ? eventsData._embedded.events : []} />
             <div className="w-100 md:flex">
               <div className="sm:w-full md:w-2/5">
-              <div className="block md:hidden mt-6 mx-2"><SearchBar/></div>
+              {/* <div className="block md:hidden mt-6 mx-2"><SearchBar/></div> */}
                 <ArtistInfo artistInfo={artistInfo} />
               </div>
               <div className="w-full md:w-3/5 p-6">
-                <div className="hidden md:block"><SearchBar/></div>
+                {/* <div className="hidden md:block"><SearchBar/></div> */}
                 <Results gigs={eventsData._embedded ? eventsData._embedded.events : [] } />
               </div>
             </div>
