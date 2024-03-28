@@ -87,14 +87,14 @@ export default function ResultsPage (){
                               </div>
                           )}
                       </div>
-                      <div className="w-full md:w-3/5 p-6">
+                      <div className="w-full md:w-3/5 md:p-6 p-2">
                           <Results gigs={eventsData._embedded ? eventsData._embedded.events : [] } />
                       </div>
                   </div>
               </div>
           ) : (
             <div className='h-[90vh] grid place-content-center'>
-              <ReactLoading type="bubbles" color="#fff" />
+              <ReactLoading type="bars" color="#fff" />
             </div>
           )}
       </div>

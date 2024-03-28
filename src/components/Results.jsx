@@ -31,7 +31,7 @@ export default function Results ({gigs}) {
     }
 
     return (
-        <div className="mt-6">
+        <div className="mt-6 ">
             {displayEvents.length > 0 ? (
                 <motion.div key={test} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
                     <div className="pb-6">

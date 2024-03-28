@@ -56,7 +56,7 @@ function EventsMap({gigs}) {
                   {activeMarker === id ? (
                     <InfoWindowF onCloseClick={() => setActiveMarker(null)}>
                       <div>
-                        <a target="_blank" className="underline underline-offset-2 font-semibold" href={website}>
+                        <a target="_blank" className="underline underline-offset-2 font-semibold leading-8" href={website}>
                           <p className="underline-offset-4">{name}</p>
                         </a>
                         <p>{address}</p>

@@ -106,7 +106,7 @@ export default function HomePage (){
                                         <ArtistInfo artistInfo={artistInfo} />
                                     ) : (
                                         <div className='h-full grid place-content-center'>
-                                        <ReactLoading type="bubbles" color="#fff" />
+                                        <ReactLoading type="bars" color="#fff" />
                                       </div>
                                     )}
                                 </div>

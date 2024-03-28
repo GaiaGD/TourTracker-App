@@ -77,27 +77,73 @@ export default function SearchBar (){
                     <input
                         type="search"
                         id="default-search"
-                        className="block w-full p-4 ps-10 text-base border-4 bg-black focus:ring-blue-500 focus:border-blue-500 border-white dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="block
+                        w-full
+                        p-4
+                        ps-10
+                        text-base
+                        border-4
+                        bg-black
+                        focus:ring-blue-500
+                        focus:border-blue-500
+                        border-lime-300"
                         placeholder="Search Artists..."
                         value={inputValue} 
                         onChange={handleChange} 
                         required />
-                    <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-fuchsia-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-base px-4 py-2 hover:bg-fuchsia-900 dark:focus:ring-blue-800">Search</button>
-                </div>
+                    <button type="submit" className="
+                    rounded-full
+                    text-indigo-950
+                    absolute
+                    end-2.5
+                    bottom-2.5
+                    bg-violet-300
+                    hover:bg-blue-800
+                    focus:ring-4
+                    focus:outline-none
+                    focus:ring-blue-300
+                    font-medium
+                    text-base
+                    px-4
+                    py-2
+                    hover:bg-violet-200
+                    dark:focus:ring-blue-800"
+                    >Search</button>
+               </div>
             </form>
-            
 
             {dropdownresults.length > 0 && dropdownresults !== "No Results" &&
-                <div className="md:absolute z-10 backdrop-blur-md md:bg-white bg-black bg-opacity-60 text-fuchsia-950 w-100 w-full md:w-[48%] max-h-[50vh] my-3 overflow-scroll">
+                <div className="
+                md:absolute
+                z-10
+                backdrop-blur-md
+                md:bg-violet-200/60
+                bg-black
+                bg-opacity-60
+                md:text-indigo-950
+                text-violet-200
+                w-100
+                w-full
+                md:w-[48%]
+                max-h-[50vh]
+                my-3
+                overflow-scroll"
+                >
                     {dropdownresults.map((result, i) => (
-                        <div
-                            onClick={() =>
-                                {
+                        <div onClick={() => {
                                 setInputValue('')
                                 setDropdownresults('')
                                 navigate(`/resultpage/${result.id}`)}
                             }
-                            className="cursor-pointer p-6 border-b border-fuchsia-950 last:border-0 hover:bg-white/40" key={i}>
+                            className="
+                            cursor-pointer
+                            p-6
+                            border-b
+                            md:border-indigo-950
+                            border-lime-300
+                            last:border-0
+                            hover:bg-lime-300"
+                            key={i}>
                             <p>{result.name}</p>
                         </div>
                     ))}
@@ -105,9 +151,30 @@ export default function SearchBar (){
             }
 
             { dropdownresults === "No Results" &&
-                <div className="md:absolute z-10 backdrop-blur-md md:bg-white bg-black bg-opacity-40 text-fuchsia-950 w-full md:w-[48%] max-h-[50vh] my-3 overflow-scroll">
-                    <div onClick={() => {setDropdownresults([]), setInputValue('')}} className="cursor-pointer p-6 border-b border-fuchsia-950 last:border-0 hover:bg-white/40">
-                        <p>No artist found</p>
+                <div className="
+                md:absolute
+                z-10
+                backdrop-blur-md
+                md:bg-violet-200
+                bg-black
+                bg-opacity-60
+                text-indigo-950
+                w-100
+                w-full
+                md:w-[48%]
+                max-h-[50vh]
+                my-3
+                overflow-scroll"
+                >
+                    <div onClick={() => {setDropdownresults([]), setInputValue('')}} className="cursor-pointer
+                        cursor-pointer
+                        p-6
+                        border-b
+                        border-fuchsia-950
+                        last:border-0
+                        hover:bg-white/40"
+                    >
+                       <p>No artist found</p>
                     </div>
                 </div>
             }

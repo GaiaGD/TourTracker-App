@@ -1,6 +1,9 @@
 import { useContext, useState } from "react"
 import { motion } from "framer-motion"
 import { TourContext } from "../context/tour-context"
+import { SlArrowDown } from "react-icons/sl";
+import { SlArrowUp } from "react-icons/sl";
+
 export default function EventItem({gig}) {
 
   const { activeMarker, setActiveMarker } = useContext(TourContext)
@@ -12,6 +15,7 @@ export default function EventItem({gig}) {
   }
 
   const event = gig
+  console.log(gig)
   
   const dateString = event.dates.start.localDate
   const dateParts = dateString.split('-');
@@ -40,32 +44,46 @@ export default function EventItem({gig}) {
 
   return (
     <div onClick={() => setActiveMarker(event.id)}
-    className="mb-2 p-0 md:p-3 md:mb-8 md:p-6 hover:bg-fuchsia-900 border-b-2 border-lime-300 border-solid">
+    className="mb-6 md:mb-8 p-2 md:p-3 md:p-6 hover:bg-indigo-950 border-8 border-lime-300 border-solid shadow-lg shadow-lime-300/50">
       <div className="w-full md:flex md:justify-between sm:block">
         <div className="flex w-full items-center">
           <div className="text-center w-1/4">
-            <h5 className="text-[4rem] leading-[6rem] Taboo-Pro-Medium">{day}</h5>
+            <h5 className="text-[4rem] text-violet-300 leading-[4rem] Taboo-Pro-Medium">{day}</h5>
             <h5>{monthName}</h5>
             <h5>{year}</h5>
           </div>
           <div className="w-3/4">
-            <h3 className="md:text-2xl text-xl Aktiv-Grotesk-Bold">{event.name}</h3>
+            <h3 className="md:text-2xl text-xl Aktiv-Grotesk-Bold text-violet-300">{event.name}</h3>
             <h5>{event._embedded.venues[0].name}</h5>
-            <h5>{event._embedded.venues[0].city.name}</h5>
+            <h5>{event._embedded.venues[0].city.name}, {event._embedded.venues[0].state.stateCode}</h5>
           </div>
         </div>
 
         <div className="flex justify-end">
           <button
           onClick={() => eventDetails()}
-          type="button" className="pr-4 p-0 w-full md:w-auto self-end focus:outline-none bg-fuchsia-700 hover:bg-fuchsia-800 focus:ring-4 focus:ring-fuchsia-300 font-medium text-base px-5 py-2.5 mb-2 dark:bg-fuchsia-600 dark:hover:bg-fuchsia-700 dark:focus:ring-fuchsia-900">Details</button>
+          type="button" className="
+          rounded-full
+          md:w-auto
+          self-end
+          focus:outline-none
+          bg-violet-300
+          hover:bg-violet-200
+          font-medium
+          text-base
+          p-4
+          mb-2
+          text-black"
+          >
+            {showDetails ? <SlArrowUp/> : <SlArrowDown />}
+          </button>
         </div>
 
       </div>
       {showDetails &&
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
 
-          <div className="mt-4 bg-lime-300 text-fuchsia-700 p-4">
+          <div className="mt-4 text-line-300 py-4 border-t-2 border-solid border-lime-300">
             <div className="md:flex">
               <div className="md:w-1/2 w-full">
                 {event.classifications[0]?.genre && <p>Genre: {event.classifications[0]?.genre?.name}</p>}
@@ -76,7 +94,7 @@ export default function EventItem({gig}) {
             </div>
             <div className="md:flex">
               <div className="md:w-1/2 w-full">
-                {event.doorsTimes?.localTime && <p>{convertTo12HourFormat(event.dates?.start?.localTime)}</p>}
+                {event.dates?.start?.localTime && <p>{convertTo12HourFormat(event.dates?.start?.localTime)}</p>}
               </div>
               <div className="md:w-1/2 w-full">
                 {event.doorsTimes?.localTime && <p>Doors open: {event.doorsTimes?.localTime}</p>}
@@ -97,13 +115,34 @@ export default function EventItem({gig}) {
               <div className="md:w-1/2 w-full text-end pt-4">
                 {event.url &&
                   <a target="_blank" href={event.url}>
-                    <button type="button" className="w-full md:w-auto focus:outline-none text-white bg-fuchsia-700 hover:bg-fuchsia-800 focus:ring-4 focus:ring-fuchsia-300 font-medium text-base px-5 py-2.5 mb-2 dark:bg-fuchsia-600 dark:hover:bg-fuchsia-700 dark:focus:ring-fuchsia-900">Purchase Tickets</button>
+                    <button type="button" className="
+                    rounded-full
+                    w-full
+                    md:w-auto
+                    focus:outline-none
+                    text-white
+                    bg-violet-300
+                    hover:bg-violet-200
+                    focus:ring-4
+                    focus:ring-fuchsia-300
+                    font-medium
+                    text-base
+                    px-5
+                    py-2.5
+                    mb-2
+                    text-black"
+                    >Purchase Tickets</button>
                   </a>
                 }
               </div>
             </div>
-            <div className="mt-4">
-              {event.pleaseNote && <small>*{event.pleaseNote}</small>}
+            <div className="flex">
+              <div className="mt-4 md:w-1/2 md:mr-4 w-full">
+                  {event.accessibility?.info && <small>{event.accessibility.info}</small>}
+                </div>
+                <div className="mt-4 md:w-1/2 w-full">
+                  {event.pleaseNote && <small>*{event.pleaseNote}</small>}
+                </div>
             </div>
           </div>
         </motion.div>

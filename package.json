@@ -16,9 +16,12 @@
     "google-map-react": "^2.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1",
     "react-loading": "^2.0.3",
     "react-paginate": "^8.2.0",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "react-simple-line-icons": "^1.0.8",
+    "simple-line-icons": "^2.5.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

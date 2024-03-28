@@ -12,11 +12,11 @@ export default function ArtistInfo({artistInfo}) {
         <motion.div key={artistInfo.name} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
 
             <div className="md:p-6 p-2 relative">
-                <div className='md:absolute relative md:-top-[7rem] bg-black px-2 md:px-12 py-4 border-8 md:ml-6 border-lime-300'>
+                <div className='md:absolute relative md:-top-[7rem] bg-black px-2 md:px-12 py-4 border-8 md:ml-6 border-lime-300 shadow-lg shadow-lime-300/50'>
                     {artistInfo.name &&
                         <div className="pb-6 pt-0">
                             <p className="md:my-4 text-xl Aktiv-Grotesk-Bold">Results For: </p>
-                            <h1 className="text-[8rem] leading-[8rem] Taboo-Pro-Medium-Italic text-lime-300">{artistInfo.name}</h1>
+                            <h1 className="text-[6rem] leading-[6rem] md:text-[8rem] Taboo-Pro-Medium-Italic text-lime-300">{artistInfo.name}</h1>
                         </div>
                     }
                     <div className='md:flex'>
