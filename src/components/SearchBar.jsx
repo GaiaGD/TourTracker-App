@@ -27,7 +27,6 @@ export default function SearchBar (){
 
     useEffect(() => {
         const ticketmasterApiKey = import.meta.env.VITE_TICKETMASTER_API_KEY
-        console.log(`inputSubmit before:`, inputSubmit)
         if(inputSubmit != ''){
             const searchByKeyword = async (keywordToSearch) => {
                 try {
@@ -54,12 +53,6 @@ export default function SearchBar (){
             searchByKeyword(inputSubmit)
         }
     }, [inputSubmit])
-
-    // useEffect(() => {
-    //     if(artistIdUrl != ''){
-    //         navigate(`/resultpage/${artistIdUrl}`)
-    //     }
-    // }, [navigate, artistIdUrl])
 
     const handleChange = (event) => {
         setInputValue(event.target.value)

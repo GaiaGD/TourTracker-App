@@ -16,7 +16,10 @@ function TourContextProvider(props){
 
     return (
         <TourContext.Provider
-          value={{ activeMarker, setActiveMarker, handleActiveMarker }}>
+          value={{ activeMarker,
+          setActiveMarker,
+          handleActiveMarker
+          }}>
             {props.children}
         </TourContext.Provider>
     )

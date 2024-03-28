@@ -12,8 +12,7 @@ export default function EventItem({gig}) {
   }
 
   const event = gig
-  console.log(event)
-
+  
   const dateString = event.dates.start.localDate
   const dateParts = dateString.split('-');
 
@@ -39,15 +38,13 @@ export default function EventItem({gig}) {
     return `${hours}:${minutes} ${period}`
   }
 
-  console.log(convertTo12HourFormat(event.dates?.start?.localTime))
-
   return (
     <div onClick={() => setActiveMarker(event.id)}
     className="mb-2 p-0 md:p-3 md:mb-8 md:p-6 hover:bg-fuchsia-900 border-b-2 border-lime-300 border-solid">
       <div className="w-full md:flex md:justify-between sm:block">
         <div className="flex w-full items-center">
           <div className="text-center w-1/4">
-            <h5 className="text-[6rem] leading-[6rem] Taboo-Pro-Medium">{day}</h5>
+            <h5 className="text-[4rem] leading-[6rem] Taboo-Pro-Medium">{day}</h5>
             <h5>{monthName}</h5>
             <h5>{year}</h5>
           </div>
@@ -71,15 +68,15 @@ export default function EventItem({gig}) {
           <div className="mt-4 bg-lime-300 text-fuchsia-700 p-4">
             <div className="md:flex">
               <div className="md:w-1/2 w-full">
-                <p>Genre: {event.classifications[0]?.genre?.name}</p>
+                {event.classifications[0]?.genre && <p>Genre: {event.classifications[0]?.genre?.name}</p>}
               </div>
               <div className="md:w-1/2 w-full">
-                <p>{event.dates?.status?.code && <p>Status: {event.dates?.status.code}</p>}</p>
+                {event.dates?.status?.code && <p>Status: {event.dates?.status.code}</p>}
               </div>
             </div>
             <div className="md:flex">
               <div className="md:w-1/2 w-full">
-                <p>Event Starts: {convertTo12HourFormat(event.dates?.start?.localTime)}</p>
+                {event.doorsTimes?.localTime && <p>{convertTo12HourFormat(event.dates?.start?.localTime)}</p>}
               </div>
               <div className="md:w-1/2 w-full">
                 {event.doorsTimes?.localTime && <p>Doors open: {event.doorsTimes?.localTime}</p>}
@@ -87,7 +84,7 @@ export default function EventItem({gig}) {
             </div>
             <div className="md:flex items-center pt-2">
               <div className="md:w-1/2 w-full">
-                { event.priceRanges && <p>tickets from {event.priceRanges[0].min}{event.priceRanges[0].currency}</p> }
+                {event.priceRanges && <p>tickets from {event.priceRanges[0].min}{event.priceRanges[0].currency}</p> }
               </div>
               <div className="md:w-1/2 w-full">
                 {/* {event.ticketLimit && <p>{event.ticketLimit.info}</p> } */}
@@ -95,7 +92,7 @@ export default function EventItem({gig}) {
             </div>
             <div className="md:flex md:items-center pt-2">
               <div className="md:w-1/2 w-full">
-                {event.ticketLimit && <p>{event.ticketLimit.info}</p> }
+                {event.ticketLimit?.info && <p>{event.ticketLimit.info}</p> }
               </div>
               <div className="md:w-1/2 w-full text-end pt-4">
                 {event.url &&

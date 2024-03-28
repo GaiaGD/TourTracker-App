@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import SearchBar from "../components/SearchBar"
-import TTLogo from "../../public/TT-logo.svg";
+import TTLogo from "/TT-logo.svg";
 
 export default function Header() {
     return (
