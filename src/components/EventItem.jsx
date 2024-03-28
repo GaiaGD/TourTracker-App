@@ -15,7 +15,6 @@ export default function EventItem({gig}) {
   }
 
   const event = gig
-  console.log(gig)
   
   const dateString = event.dates.start.localDate
   const dateParts = dateString.split('-');
