@@ -12,16 +12,15 @@ function EventsMap({gigs}) {
   
   const {activeMarker, setActiveMarker, handleActiveMarker } = useContext(TourContext)
 
-  const concerts = gigs
-
+  const events = gigs
   const markers = []
 
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_MAP_API_KEY
   });
 
-  if(concerts.length > 0){
-    concerts.forEach(item => {
+  if(events.length > 0){
+    events.forEach(item => {
       markers.push({
         id: item.id,
         website: item._embedded.venues[0].url,

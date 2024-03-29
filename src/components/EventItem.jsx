@@ -3,10 +3,11 @@ import { motion } from "framer-motion"
 import { TourContext } from "../context/tour-context"
 import { SlArrowDown } from "react-icons/sl";
 import { SlArrowUp } from "react-icons/sl";
+import { GoHeart } from "react-icons/go";
 
 export default function EventItem({gig}) {
 
-  const { activeMarker, setActiveMarker } = useContext(TourContext)
+  const { setActiveMarker } = useContext(TourContext)
   
   const [showDetails, setShowDetails] = useState(false)
 
@@ -58,7 +59,7 @@ export default function EventItem({gig}) {
           </div>
         </div>
 
-        <div className="flex justify-end">
+        <div className="flex md:flex-col justify-between items-center">
           <button
           onClick={() => eventDetails()}
           type="button" className="
@@ -135,7 +136,7 @@ export default function EventItem({gig}) {
                 }
               </div>
             </div>
-            <div className="flex">
+            <div className="md:flex">
               <div className="mt-4 md:w-1/2 md:mr-4 w-full">
                   {event.accessibility?.info && <small>{event.accessibility.info}</small>}
                 </div>

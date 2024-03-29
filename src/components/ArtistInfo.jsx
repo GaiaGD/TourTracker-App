@@ -24,14 +24,15 @@ export default function ArtistInfo({artistInfo}) {
                             <div
                                 className="md:h-64 h-32 w-64 rounded-lg bg-no-repeat bg-center bg-cover"
                                 style={{
-                                backgroundImage: `url(${artistInfo.images[5].url})`
+                                backgroundImage: `url(${artistInfo.images[1].url})`
                             }}>
                             </div>
                             :
                             <div
-                                className="h-64 w-64 rounded-lg bg-no-repeat bg-center bg-cover bg-gray-50">
-                            </div>
-                        }
+                                className="h-64 w-64 rounded-lg bg-no-repeat bg-center bg-cover bg-stone-950">
+                            </div> 
+                            
+                            }
 
                         <div className="flex md:flex-col md:h-64 justify-between">
                             {artistInfo.externalLinks?.facebook &&

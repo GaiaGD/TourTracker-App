@@ -10,7 +10,6 @@ import ArtistInfo from "./ArtistInfo.jsx";
 export default function ResultsPage (){
 
     const { artistId } = useParams();
-    console.log(artistId)
 
     const [eventsData, setEventsData] = useState(null)
     const [artistInfo, setArtistInfo] = useState(null)
@@ -35,7 +34,6 @@ export default function ResultsPage (){
               throw new Error("Failed to fetch events");
             }
             const data = await response.json();
-            console.log(data)
             setEventsDataLoaded(true)
             setEventsData(data);
             
@@ -75,24 +73,24 @@ export default function ResultsPage (){
 
     return (
       <div>
-        <Header/>
-        {eventsDataLoaded && artistDataLoaded ? (
-            <div>
-                <EventsMap gigs={eventsData._embedded ? eventsData._embedded.events : []} />
-                <div className="w-100 md:flex">
-                    <div className="sm:w-full md:w-2/5">
-                        <ArtistInfo artistInfo={artistInfo} />
-                    </div>
-                    <div className="w-full md:w-3/5 p-6">
-                        <Results gigs={eventsData._embedded ? eventsData._embedded.events : [] } />
-                    </div>
-                </div>
-            </div>
-        ) : (
-            <div className='h-full grid place-content-center'>
-            <ReactLoading type="bars" color="#fff" />
+          <Header/>
+          {eventsDataLoaded && artistDataLoaded ? (
+          <div>
+              <EventsMap gigs={eventsData._embedded ? eventsData._embedded.events : []} />
+              <div className="w-100 md:flex">
+                  <div className="sm:w-full md:w-2/5">
+                      <ArtistInfo artistInfo={artistInfo} />
+                  </div>
+                  <div className="w-full md:w-3/5 p-6">
+                      <Results gigs={eventsData._embedded ? eventsData._embedded.events : [] } />
+                  </div>
+              </div>
           </div>
-        )}
+          ) : (
+              <div className='h-screen grid place-content-center'>
+              <ReactLoading type="bars" color="#fff" />
+          </div>
+          )}
       </div>
     )
 }

@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { TourContext } from './context/tour-context';
 import HomePage from './components/Homepage';
 import ResultsPage from './components/ResultsPage';
 import ErrorPage from './components/ErrorPage';

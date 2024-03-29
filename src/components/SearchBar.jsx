@@ -31,13 +31,12 @@ export default function SearchBar (){
             const searchByKeyword = async (keywordToSearch) => {
                 try {
                     const response = await fetch(
-                    `https://app.ticketmaster.com/discovery/v2/attractions?apikey=${ticketmasterApiKey}&keyword=${keywordToSearch}&locale=*&sort=relevance,desc`
+                    `https://app.ticketmaster.com/discovery/v2/attractions?apikey=${ticketmasterApiKey}&keyword=${keywordToSearch}&locale=*&sort=relevance,desc&segmentId=KZFzniwnSyZfZ7v7nJ`
                     );
                     if (!response.ok) {
                     throw new Error("Failed to fetch artists");
                     }
                     const data = await response.json();
-                    console.log(data)
                     if(data._embedded){
                     console.log(`data embedded`)
                     setDropdownresults(data._embedded.attractions)
@@ -61,7 +60,6 @@ export default function SearchBar (){
     const handleSearch = (event) => {
         event.preventDefault()
         setInputSubmit(encodeURIComponent(inputValue))
-        console.log('Search submitted with value:', encodeURIComponent(inputValue))
     }
 
     return (

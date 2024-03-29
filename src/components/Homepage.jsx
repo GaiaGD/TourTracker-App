@@ -1,5 +1,4 @@
 import { useEffect, useState, useContext } from "react";
-import { useLocation } from "react-router-dom";
 import { TourContext } from "../context/tour-context"
 import ReactLoading from "react-loading";
 import Header from "./Header.jsx";
@@ -12,15 +11,12 @@ export default function HomePage (){
 
     const { visited, setVisited } = useContext(TourContext)
 
-
     const [firstLanding, setfirstLanding] = useState(true);
 
     const [eventsData, setEventsData] = useState(null)
     const [artistInfo, setArtistInfo] = useState(null)
     const [eventsDataLoaded, setEventsDataLoaded] = useState(false) 
     const [artistDataLoaded, setArtistDataLoaded] = useState(false)
-
-    console.log(`before: `, visited)
 
     useEffect(() => {
         // Simulate loading data 
@@ -33,11 +29,7 @@ export default function HomePage (){
         };
       }, []);
 
-    console.log(`after: `, visited)
-
-    const location = useLocation();
-
-    const defaultId = 'K8vZ917_Su0'; // Replace for another artist
+    const defaultId = 'K8vZ91754g7'; // Replace for another artist
 
     useEffect(() => {
         const ticketmasterApiKey = import.meta.env.VITE_TICKETMASTER_API_KEY
@@ -85,19 +77,6 @@ export default function HomePage (){
           
     }, [])
 
-    // useEffect(() => {
-    //     // Check if the location pathname is the homepage
-    //     const isHomePage = location.pathname === "/";
-    //     // If not navigating back to the homepage, setfirstLanding to false
-    //     if (!isHomePage) {
-    //         setfirstLanding(false)
-    //     }
-    //     // Clean up 
-    //     return () => {
-    //     };
-    // }, [location]);
-
-
     return (
         <div>
             {!visited ? (
@@ -108,21 +87,21 @@ export default function HomePage (){
                 <div>
                     <Header/>
                     {eventsDataLoaded && artistDataLoaded ? (
-                        <div>
-                            <EventsMap gigs={eventsData._embedded ? eventsData._embedded.events : []} />
-                            <div className="w-100 md:flex">
-                                <div className="sm:w-full md:w-2/5">
-                                    <ArtistInfo artistInfo={artistInfo} />
-                                </div>
-                                <div className="w-full md:w-3/5 p-6">
-                                    <Results gigs={eventsData._embedded ? eventsData._embedded.events : [] } />
-                                </div>
+                    <div>
+                        <EventsMap gigs={eventsData._embedded ? eventsData._embedded.events : []} />
+                        <div className="w-100 md:flex">
+                            <div className="sm:w-full md:w-2/5">
+                                <ArtistInfo artistInfo={artistInfo} />
+                            </div>
+                            <div className="w-full md:w-3/5 p-6">
+                                <Results gigs={eventsData._embedded ? eventsData._embedded.events : [] } />
                             </div>
                         </div>
+                    </div>
                     ) : (
-                        <div className='h-full grid place-content-center'>
+                        <div className='h-screen grid place-content-center'>
                         <ReactLoading type="bars" color="#fff" />
-                      </div>
+                    </div>
                     )}
                 </div>
             )}
