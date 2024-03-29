@@ -1,7 +1,9 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import { TourContext } from "../context/tour-context";
 
 export default function SearchBar (){
+
     const divRef = useRef(null);
 
     const navigate = useNavigate();
@@ -82,9 +84,11 @@ export default function SearchBar (){
                         text-base
                         border-4
                         bg-black
+                        dark:bg-red-200
                         focus:ring-blue-500
                         focus:border-blue-500
-                        border-lime-300"
+                        border-lime-300
+                        dark:border-pink-600"
                         placeholder="Search Artists..."
                         value={inputValue} 
                         onChange={handleChange} 
@@ -96,6 +100,8 @@ export default function SearchBar (){
                     end-2.5
                     bottom-2.5
                     bg-violet-300
+                    dark:bg-teal-500
+                    dark:text-white
                     hover:bg-blue-800
                     focus:ring-4
                     focus:outline-none
@@ -139,6 +145,7 @@ export default function SearchBar (){
                             border-b
                             md:border-indigo-950
                             border-lime-300
+                            dark:bg-pink-600
                             last:border-0
                             hover:bg-lime-300"
                             key={i}>

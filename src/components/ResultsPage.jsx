@@ -72,8 +72,8 @@ export default function ResultsPage (){
 }, [artistId])
 
     return (
-      <div>
-          <Header/>
+      <div className="bg-black dark:bg-red-200 text-white dark:text-pink-800 h-full">
+      <Header/>
           {eventsDataLoaded && artistDataLoaded ? (
           <div>
               <EventsMap gigs={eventsData._embedded ? eventsData._embedded.events : []} />

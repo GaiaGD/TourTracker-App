@@ -78,7 +78,7 @@ export default function HomePage (){
     }, [])
 
     return (
-        <div>
+        <div className="bg-black dark:bg-red-200">
             {!visited ? (
                 <div className="h-screen bg-black grid place-content-center">
                     <img className="w-80 h-auto" src={TTLogo} alt="TT Logo" />
